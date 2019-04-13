@@ -1,0 +1,32 @@
+﻿@model DiagnosticsViewModel
+
+<h1>身份验证cookie</h1>
+
+<h3>Claims--声明</h3>
+<dl>
+    @foreach (var claim in Model.AuthenticateResult.Principal.Claims)
+    {
+        <dt>@claim.Type</dt>
+        <dd>@claim.Value</dd>
+    }
+</dl>
+
+<h3>Properties--属性</h3>
+<dl>
+    @foreach (var prop in Model.AuthenticateResult.Properties.Items)
+    {
+        <dt>@prop.Key</dt>
+        <dd>@prop.Value</dd>
+    }
+</dl>
+
+@if (Model.Clients.Any())
+{
+<h3>Clients--客户</h3>
+    <ul>
+        @foreach (var client in Model.Clients)
+        {
+            <li>@client</li>
+        }
+    </ul>
+}

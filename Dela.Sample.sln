@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dela.Sample.WebMvc", "Dela.Sample.WebMvc\Dela.Sample.WebMvc.csproj", "{B3279AB7-FD40-4062-80F9-8B6B5BBE9DD3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dela.Sample.ApiGateway", "Dela.Sample.ApiGateway\Dela.Sample.ApiGateway.csproj", "{B77A85AE-9A65-44A1-80E1-69FBD82DE5AB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dela.Sample.ApiProduct", "Dela.Sample.ApiProduct\Dela.Sample.ApiProduct.csproj", "{C96036E9-3C17-4D24-8E57-65C1D8014BE0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dela.Sample.ApiClient", "Dela.Sample.ApiClient\Dela.Sample.ApiClient.csproj", "{38165034-A415-467C-AE41-410D099912E5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dela.Sample.IdentityService", "Dela.Sample.IdentityService\Dela.Sample.IdentityService.csproj", "{58E47767-BDCF-42D8-89A3-E21407710830}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dela.Sample.Util", "Dela.Sample.Util\Dela.Sample.Util.csproj", "{BEDE0376-4E07-4028-9BFB-D9EB6F91C21A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3279AB7-FD40-4062-80F9-8B6B5BBE9DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3279AB7-FD40-4062-80F9-8B6B5BBE9DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3279AB7-FD40-4062-80F9-8B6B5BBE9DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3279AB7-FD40-4062-80F9-8B6B5BBE9DD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B77A85AE-9A65-44A1-80E1-69FBD82DE5AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B77A85AE-9A65-44A1-80E1-69FBD82DE5AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B77A85AE-9A65-44A1-80E1-69FBD82DE5AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B77A85AE-9A65-44A1-80E1-69FBD82DE5AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C96036E9-3C17-4D24-8E57-65C1D8014BE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C96036E9-3C17-4D24-8E57-65C1D8014BE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C96036E9-3C17-4D24-8E57-65C1D8014BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C96036E9-3C17-4D24-8E57-65C1D8014BE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38165034-A415-467C-AE41-410D099912E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38165034-A415-467C-AE41-410D099912E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38165034-A415-467C-AE41-410D099912E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38165034-A415-467C-AE41-410D099912E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58E47767-BDCF-42D8-89A3-E21407710830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58E47767-BDCF-42D8-89A3-E21407710830}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58E47767-BDCF-42D8-89A3-E21407710830}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58E47767-BDCF-42D8-89A3-E21407710830}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEDE0376-4E07-4028-9BFB-D9EB6F91C21A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEDE0376-4E07-4028-9BFB-D9EB6F91C21A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEDE0376-4E07-4028-9BFB-D9EB6F91C21A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEDE0376-4E07-4028-9BFB-D9EB6F91C21A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {253B3A1A-128C-4B34-92E6-F6DA43DDCA2C}
+	EndGlobalSection
+EndGlobal

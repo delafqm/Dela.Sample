@@ -1,0 +1,13 @@
+﻿{
+  "profiles": {
+    "Dela.Sample.IdentityService": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "api/values",
+      "applicationUrl": "http://192.168.0.3:8086",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

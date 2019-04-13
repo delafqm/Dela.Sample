@@ -1,0 +1,21 @@
+﻿@model LogoutViewModel
+
+<div class="logout-page">
+    <div class="page-header">
+        <h1>注销</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <p>你想注销身份认证服务?</p>
+            <form asp-action="Logout">
+                <input type="hidden" name="logoutId" value="@Model.LogoutId"  />
+                <fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-primary">是</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

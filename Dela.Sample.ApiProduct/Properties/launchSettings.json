@@ -1,0 +1,15 @@
+﻿{
+
+  "profiles": {
+
+    "Dela.Sample.ApiProduct": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "api/values",
+      "applicationUrl": "http://192.168.0.3:8089",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "ReRoutes": [
+    // API:限流的客户服务
+    {
+      "DownstreamPathTemplate": "/api/values",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "47.99.36.29",
+          "Port": 8088
+        }
+      ],
+      "UpstreamPathTemplate": "/ClientService/Limit",
+      "UpstreamHttpMethod": [ "Get" ],
+      //限流--在2秒内，超过2次请求，被视为过载，断开3秒
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "2s",
+        "PeriodTimespan": 5,
+        "Limit": 2
+      }
+    },
+    // API:缓存的产品服务
+    {
+      "DownstreamPathTemplate": "/api/values",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "47.99.36.29",
+          "Port": 8089
+        }
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 10,
+        "Region": "somename1"
+      }, //设置10秒缓存
+      "UpstreamPathTemplate": "/ProductService/Cache",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    //用于聚合请求---设置开始
+    {
+      "DownstreamPathTemplate": "/api/values",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "47.99.36.29",
+          "Port": 8088
+        }
+      ],
+      "UpstreamPathTemplate": "/ClientService",
+      "UpstreamHttpMethod": [ "Get" ],
+      "Key": "ClientService"
+    },
+    {
+      "DownstreamPathTemplate": "/api/values",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "47.99.36.29",
+          "Port": 8089
+        }
+      ],
+      "UpstreamPathTemplate": "/ProductService",
+      "UpstreamHttpMethod": [ "Get" ],
+      "Key": "ProductService"
+    },
+    //用于聚合请求---设置结束
+
+    //需要授权的客户服务
+    {
+      "DownstreamPathTemplate": "/api/Authorize/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "47.99.36.29",
+          "Port": 8088
+        }
+      ],
+      "UpstreamPathTemplate": "/Authorize/ClientService/{url}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "ClientServiceKey",
+        "AllowedScopes": []
+      }
+    },
+    //需要授权的产品服务
+    {
+      "DownstreamPathTemplate": "/api/Authorize/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "47.99.36.29",
+          "Port": 8089
+        }
+      ],
+      "UpstreamPathTemplate": "/Authorize/ProductService/{url}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "ProductServiceKey",
+        "AllowedScopes": []
+      }
+    },
+    // API:客户端服务
+    {
+      "DownstreamPathTemplate": "/api/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "47.99.36.29",
+          "Port": 8088
+        }
+      ],
+      "UpstreamPathTemplate": "/ClientService/{url}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    // API:产品服务
+    {
+      "DownstreamPathTemplate": "/api/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "47.99.36.29",
+          "Port": 8089
+        }
+      ],
+      "UpstreamPathTemplate": "/ProductService/{url}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+
+    //配置负载均衡
+    {
+      "DownstreamPathTemplate": "/api/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "47.99.36.29",
+          "Port": 8088
+        },
+        {
+          "Host": "47.99.36.29",
+          "Port": 8089
+        }
+      ],
+      "UpstreamPathTemplate": "/load/{url}",
+      //"FileCacheOptions": {"TtlSeconds": 10,"Region": "somename"},//设置10秒缓存
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //轮询
+      },
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    }
+  ],
+  //设置聚合请求
+  "Aggregates": [
+    {
+      "ReRouteKeys": [
+        "ClientService",
+        "ProductService"
+      ],
+      "UpstreamPathTemplate": "/Service"
+    }
+  ],
+  //全局设置
+  "GlobalConfiguration": {
+    //限流配置
+    "RateLimitOptions": {
+      "DisableRateLimitHeaders": false,
+      "QuotaExceededMessage": "Limiting!!",
+      "HttpStatusCode": 999,
+      "ClientIdHeader": "Test"
+    }
+  }
+}

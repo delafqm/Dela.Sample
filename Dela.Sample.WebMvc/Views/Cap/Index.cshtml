@@ -1,0 +1,107 @@
+﻿@{
+    ViewData["Title"] = "CAP分布式事务";
+}
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+    $(document).ready(function () {
+        $("#btn0").click(function () {
+            $.ajax({
+                type: "get",
+                url: "http://47.99.36.29:8082/api/orderone",
+                data: {},
+                dataType: "text",
+                success: function (result) {
+                    $("#btn0").attr("disabled", "disabled");
+                    $("#display").html(result);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $("#display").html(textStatus + ':' + XMLHttpRequest.status);
+                }
+            });
+        });
+        $("#btn1").click(function () {
+            $.ajax({
+                type: "get",
+                url: "http://47.99.36.29:8082/api/queryall",
+                data: {},
+                dataType:"json",
+                success: function (result) {
+                    $("#display1").html('用户：' + result[0].OrderUserID + '，订购产品：' + result[0].ProductID + '，时间：' + result[0].OrderTime);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $("#display1").html(textStatus + ':' + XMLHttpRequest.status);
+                }
+            });
+        });
+        $("#btn2").click(function () {
+            $.ajax({
+                type: "get",
+                url: "http://47.99.36.29:8084/api/queryall",
+                data: {},
+                dataType: "json",
+                success: function (result) {
+                    $("#display2").html('库存还有：' + result[0].StorageNumber + '，最后更新时间：' + result[0].UpdatedTime);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $("#display2").html(textStatus + ':' + XMLHttpRequest.status);
+                }
+            });
+        });
+        $("#btn3").click(function () {
+            $.ajax({
+                type: "get",
+                url: "http://47.99.36.29:8083/api/queryall",
+                data: {},
+                dataType:"json",
+                success: function (result) {
+                    //var obj1 = result.ClientService;
+                    $("#display3").html('收到用户:' + result[0].OrderUserID + '的订单信息，时间为：' + result[0].CreatedTime);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $("#display3").html(textStatus + ':' + XMLHttpRequest.status);
+                }
+            });
+        });
+        
+    });
+</script>
+<h2>@ViewData["Title"]</h2>
+<img src="~/images/381412-20180724232338836-1039271373.png" />
+<div class="well">
+    <button class="btn btn-primary" id="btn0">生成订单</button>
+    <h4 id="display"></h4>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h4>OrderService-订单系统</h4></div>
+    <div class="panel-body">
+        <table>
+            <tr>
+                <td style=" padding-right:20px"><button class="btn btn-primary" id="btn1">查看订单</button></td>
+                <td><h4 id="display1"></h4></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h4>StorageService-库存系统</h4></div>
+    <div class="panel-body">
+        <table>
+            <tr>
+                <td style=" padding-right:20px"><button class="btn btn-primary" id="btn2">获取库存</button></td>
+                <td><h4 id="display2"></h4></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h4>DeliveryService-配送系统</h4></div>
+    <div class="panel-body">
+        <table>
+            <tr>
+                <td style=" padding-right:20px"><button class="btn btn-primary" id="btn3">查看配送</button></td>
+                <td><h4 id="display3"></h4></td>
+            </tr>
+        </table>
+    </div>
+</div>

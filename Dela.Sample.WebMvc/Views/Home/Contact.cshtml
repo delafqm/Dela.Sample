@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<address>
+    One Microsoft Way<br />
+    Redmond, WA 98052-6399<br />
+    <abbr title="Phone">P:</abbr>
+    425.555.0100
+</address>
+
+<address>
+    <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
+    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+</address>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+    $(document).ready(function () {
+        $("#btn1").click(function () {
+            //$("#display").text("abc");
+            //var data = "";
+            //$.ajax({
+            //    async: false,
+            //    //cache: false,
+            //    //timeout: 60 * 60 * 1000,
+            //    //data: data,
+            //    type: "GET",
+            //    datatype: "text",
+            //    url: "http://192.168.0.3:8088/api/values/1",
+            //    success: function (result) {
+            //        //result = JSON.parse(result);
+            //        $("#display").text(result);
+            //    },
+            //    error: function (result) {
+            //        $("#display").html("error");
+            //    },
+            //});
+            $.ajax({
+                type: "get",
+                url: "http://192.168.0.3:8088/api/values",
+                data: {},
+                success: function (data) {
+                    $("#display").html(data);
+                },
+                error: function () {
+                    $("#display").html("错误");
+                }
+            });
+        });
+    });
+</script>
+
+<hr />
+<div id="display">123</div>
+<hr />
+<button id="btn1">获取API</button>

@@ -1,0 +1,130 @@
+﻿@{
+    ViewData["Title"] = "API网关";
+}
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+    $(document).ready(function () {
+        $("#btn1").click(function () {
+            $.ajax({
+                type: "get",
+                url: "http://47.99.36.29:8087/ClientService/values",
+                data: {},
+                success: function (data) {
+                    $("#display").html(data);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $("#display").html(textStatus + ':' + XMLHttpRequest.status);
+                }
+            });
+        });
+        $("#btn2").click(function () {
+            $.ajax({
+                type: "get",
+                url: "http://47.99.36.29:8087/ProductService/values",
+                data: {},
+                success: function (data) {
+                    $("#display").html(data);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $("#display").html(textStatus + ':' + XMLHttpRequest.status);
+                }
+            });
+        });
+        $("#btn3").click(function () {
+            $.ajax({
+                async:true,
+                type: "get",
+                url: "http://47.99.36.29:8087/Service",
+                data: {},
+                dataType:"json",
+                success: function (result) {
+                    //var obj1 = result.ClientService;
+                    $("#display").html(result.ClientService[0] + '<br/>' + result.ProductService[0]);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $("#display").html(textStatus + ':' + XMLHttpRequest.status);
+                }
+            });
+        });
+        $("#btn4").click(function () {
+            $.ajax({
+                type: "get",
+                url: "http://47.99.36.29:8087/ClientService/Limit",
+                data: {},
+                success: function (data) {
+                    $("#display").html(data);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $("#display").html(textStatus + ':' + XMLHttpRequest.status);
+                }
+            });
+        });
+        $("#btn5").click(function () {
+            $.ajax({
+                type: "get",
+                url: "http://47.99.36.29:8087/ProductService/Cache",
+                data: {},
+                success: function (data) {
+                    $("#display").html(data);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $("#display").html(textStatus + ':' + XMLHttpRequest.status);
+                }
+            });
+        });
+        $("#btn6").click(function () {
+            $.ajax({
+                type: "get",
+                url: "http://47.99.36.29:8087/load/values",
+                data: {},
+                success: function (data) {
+                    $("#display").html(data);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $("#display").html(textStatus + ':' + XMLHttpRequest.status);
+                }
+            });
+        });
+    });
+</script>
+<h2>@ViewData["Title"]</h2>
+<img src="~/images/381412-20180708201510167-1293314802.png" />
+<div class="panel panel-default">
+    <div class="panel-heading"><h4>显示结果</h4></div>
+    <div class="panel-body">
+        <h4 id="display"></h4>
+    </div>
+</div>
+<h4>通过API网关获取</h4>
+<div class="well">
+    <button class="btn btn-primary" id="btn1">客户服务</button>
+    <div>普通的客户服务，每次请求都会连接服务器</div>
+</div>
+<div class="well">
+    <button class="btn btn-primary" id="btn2">产品服务</button>
+    <div>普通的产品服务，每次请求都会连接服务器</div>
+</div>
+<div class="well">
+    <button class="btn btn-primary" id="btn3">服务聚合</button>
+    <div>将客户服务和产品服务，聚合在一起返回</div>
+</div>
+<div class="well">
+    <button class="btn btn-primary" id="btn4">限流的客户服务</button>
+    <div>在2秒内，超过2次请求，被视为过载，并断开3秒，期间直接返回错误</div>
+</div>
+<div class="well">
+    <button class="btn btn-primary" id="btn5">缓存的产品服务</button>
+    <div>请求10秒缓存，10秒内返回缓存结果</div>
+</div>
+<div class="well">
+    <button class="btn btn-primary" id="btn6">服务负载均衡</button>
+    <div>采用轮询的方式进行负载均衡</div>
+</div>
+<div class="well">
+    <a asp-controller="Api" asp-action="Auth">访问授权的客户服务</a>
+</div>
+<div class="well">
+    <a asp-controller="Api" asp-action="Unauth">访问未授权的产品服务</a>
+</div>
+

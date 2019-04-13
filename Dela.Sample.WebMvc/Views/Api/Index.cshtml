@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "API微服务";
+}
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+    $(document).ready(function () {
+        $("button").click(function () {
+            $.get("http://192.168.0.3:8088/api/values/1", function (data, status) {
+                alert("数据: " + data + "\n状态: " + status);
+            });
+        });
+    });
+    $('button').click(function () {
+        $.ajax(
+            {
+                type: 'get',
+                url: 'http://192.168.0.3:8088/api/values/1',
+                dataType: 'json',
+                success: function (data, stutas, xhr) {
+                    alert(data);
+                },
+                error: function (xhr, textStatus, data)){
+            alert(data);
+        },
+        complete: function(xhr, textStatus) {
+            alert(textStatus);
+        }
+    }
+    )
+});
+</script>
+
+<h2>API微服务</h2>
+<h3>以下是返回结果</h3>
+<hr />
+<h4>@ViewData["Message"]</h4>
+<div id="div1"></div>
+<hr />
+<button>获取API</button>
+
+
+
