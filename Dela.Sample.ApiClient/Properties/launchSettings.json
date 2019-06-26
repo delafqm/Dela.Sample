@@ -4,7 +4,7 @@
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/values",
-      "applicationUrl": "http://192.168.0.3:8088",
+      "applicationUrl": "http://127.0.0.1:8088",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

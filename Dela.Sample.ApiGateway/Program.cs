@@ -22,6 +22,7 @@ namespace Dela.Sample.ApiGateway
                 .UseUrls("http://*:8087")
                 .ConfigureAppConfiguration((hostingContext, builder) =>
                 {
+                    builder.AddJsonFile("appsettings.json", false, true);
                     builder.AddJsonFile("configuration.json", false, true);
                 })
                 .UseStartup<Startup>();

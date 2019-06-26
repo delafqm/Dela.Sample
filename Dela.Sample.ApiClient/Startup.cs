@@ -42,7 +42,7 @@ namespace Dela.Sample.ApiClient
                 .AddIdentityServerAuthentication(options =>
                 {
                     options.RequireHttpsMetadata = false; // for dev env
-                    options.Authority = $"http://47.99.36.29:8086";
+                    options.Authority = $"http://{Configuration["Identity:IP"]}:{Configuration["Identity:Port"]}"; // $"http://127.0.0.1:8086";
                     options.ApiName = "clientservice"; // match with configuration in IdentityServer
                 });
         }

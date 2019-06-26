@@ -1,5 +1,6 @@
 ﻿using IdentityModel.Client;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -14,11 +15,18 @@ namespace Dela.Sample.WebMvc
 {
     public class ApiHelper
     {
+        private IConfiguration configuration;
+        public ApiHelper(IConfiguration _configuration)
+        {
+            configuration = _configuration;
+        }
+
         public static async Task<string> GetApi()
         {
             // discover endpoints from metadata
             var client = new HttpClient();
-            var disco = await client.GetDiscoveryDocumentAsync("http://47.99.36.29:8086");
+            //会员中心
+            var disco = await client.GetDiscoveryDocumentAsync("http://127.0.0.1:8086");
             if (disco.IsError)
             {
                 //验证基地址错误
@@ -49,7 +57,8 @@ namespace Dela.Sample.WebMvc
             var client1 = new HttpClient();
             client1.SetBearerToken(tokenResponse.AccessToken);
 
-            var response = await client1.GetAsync("http://47.99.36.29:8088/api/Authorize/AuthValues");
+            //客户产品权限访问地址
+            var response = await client1.GetAsync("http://127.0.0.1:8088/api/Authorize/AuthValues");
             if (!response.IsSuccessStatusCode)
             {
                 //获取API错误
@@ -78,7 +87,8 @@ namespace Dela.Sample.WebMvc
             using (HttpClient http = new HttpClient())
             using (var content = new FormUrlEncodedContent(dic))
             {
-                var msg = await http.PostAsync("http://47.99.36.29:8086/connect/token", content);
+                //会员中心token
+                var msg = await http.PostAsync("http://127.0.0.1:8086/connect/token", content);
                 if (!msg.IsSuccessStatusCode)
                 {
                     //return StatusCode(Convert.ToInt32(msg.StatusCode));

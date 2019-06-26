@@ -20,6 +20,10 @@ namespace Dela.Sample.ApiProduct
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseUrls("http://*:8089")
+                .ConfigureAppConfiguration((hostingContext, builder) =>
+                {
+                    builder.AddJsonFile("appsettings.json", false, true);
+                })
                 .UseStartup<Startup>();
     }
 }

@@ -41,7 +41,7 @@ namespace Dela.Sample.ApiGateway
 
             Action<IdentityServerAuthenticationOptions> isaOptClient = option =>
             {
-                option.Authority = "http://47.99.36.29:8086";// Configuration["IdentityService:Uri"];
+                option.Authority = $"http://{Configuration["Identity:IP"]}:{Configuration["Identity:Port"]}"; //"http://127.0.0.1:8086";// Configuration["IdentityService:Uri"];
                 option.ApiName = "clientservice";
                 option.RequireHttpsMetadata = false;// Convert.ToBoolean(Configuration["IdentityService:UseHttps"]);
                 option.SupportedTokens = SupportedTokens.Both;
@@ -49,7 +49,7 @@ namespace Dela.Sample.ApiGateway
             };
             Action<IdentityServerAuthenticationOptions> isaOptProduct = option =>
             {
-                option.Authority = "http://47.99.36.29:8086";// Configuration["IdentityService:Uri"];
+                option.Authority = $"http://{Configuration["Identity:IP"]}:{Configuration["Identity:Port"]}"; //"http://127.0.0.1:8086";// Configuration["IdentityService:Uri"];
                 option.ApiName = "productservice";
                 option.RequireHttpsMetadata = false;// Convert.ToBoolean(Configuration["IdentityService:UseHttps"]);
                 option.SupportedTokens = SupportedTokens.Both;

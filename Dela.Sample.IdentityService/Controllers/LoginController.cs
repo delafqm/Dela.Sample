@@ -34,7 +34,8 @@ namespace Dela.Sample.IdentityService.Controllers
             using (HttpClient http = new HttpClient())
             using (var content = new FormUrlEncodedContent(dict))
             {
-                var msg = await http.PostAsync("http://192.168.0.3:8086/connect/token", content);
+
+                var msg = await http.PostAsync(configuration["IdentityService:TokenUri"], content);
                 if (!msg.IsSuccessStatusCode)
                 {
                     return StatusCode(Convert.ToInt32(msg.StatusCode));

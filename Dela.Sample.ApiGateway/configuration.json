@@ -6,7 +6,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "47.99.36.29",
+          "Host": "127.0.0.1",
           "Port": 8088
         }
       ],
@@ -27,7 +27,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "47.99.36.29",
+          "Host": "127.0.0.1",
           "Port": 8089
         }
       ],
@@ -44,7 +44,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "47.99.36.29",
+          "Host": "127.0.0.1",
           "Port": 8088
         }
       ],
@@ -57,7 +57,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "47.99.36.29",
+          "Host": "127.0.0.1",
           "Port": 8089
         }
       ],
@@ -73,7 +73,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "47.99.36.29",
+          "Host": "127.0.0.1",
           "Port": 8088
         }
       ],
@@ -90,7 +90,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "47.99.36.29",
+          "Host": "127.0.0.1",
           "Port": 8089
         }
       ],
@@ -107,7 +107,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "47.99.36.29",
+          "Host": "127.0.0.1",
           "Port": 8088
         }
       ],
@@ -120,7 +120,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "47.99.36.29",
+          "Host": "127.0.0.1",
           "Port": 8089
         }
       ],
@@ -134,11 +134,11 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "47.99.36.29",
+          "Host": "127.0.0.1",
           "Port": 8088
         },
         {
-          "Host": "47.99.36.29",
+          "Host": "127.0.0.1",
           "Port": 8089
         }
       ],

@@ -8,7 +8,7 @@
         $("#btn1").click(function () {
             $.ajax({
                 type: "get",
-                url: "http://47.99.36.29:8087/ClientService/values",
+                url: "http://127.0.0.1:8087/ClientService/values",
                 data: {},
                 success: function (data) {
                     $("#display").html(data);
@@ -21,7 +21,7 @@
         $("#btn2").click(function () {
             $.ajax({
                 type: "get",
-                url: "http://47.99.36.29:8087/ProductService/values",
+                url: "http://127.0.0.1:8087/ProductService/values",
                 data: {},
                 success: function (data) {
                     $("#display").html(data);
@@ -35,7 +35,7 @@
             $.ajax({
                 async:true,
                 type: "get",
-                url: "http://47.99.36.29:8087/Service",
+                url: "http://127.0.0.1:8087/Service",
                 data: {},
                 dataType:"json",
                 success: function (result) {
@@ -50,7 +50,7 @@
         $("#btn4").click(function () {
             $.ajax({
                 type: "get",
-                url: "http://47.99.36.29:8087/ClientService/Limit",
+                url: "http://127.0.0.1:8087/ClientService/Limit",
                 data: {},
                 success: function (data) {
                     $("#display").html(data);
@@ -63,7 +63,7 @@
         $("#btn5").click(function () {
             $.ajax({
                 type: "get",
-                url: "http://47.99.36.29:8087/ProductService/Cache",
+                url: "http://127.0.0.1:8087/ProductService/Cache",
                 data: {},
                 success: function (data) {
                     $("#display").html(data);
@@ -76,7 +76,7 @@
         $("#btn6").click(function () {
             $.ajax({
                 type: "get",
-                url: "http://47.99.36.29:8087/load/values",
+                url: "http://127.0.0.1:8087/load/values",
                 data: {},
                 success: function (data) {
                     $("#display").html(data);

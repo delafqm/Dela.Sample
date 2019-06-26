@@ -3,7 +3,7 @@
     "Dela.Sample.WebMvc": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://192.168.0.3:8085",
+      "applicationUrl": "http://127.0.0.1:8085",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
